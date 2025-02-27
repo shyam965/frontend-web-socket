@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import io from "socket.io-client";
 import axios from "axios";
 
-const socket = io("http://localhost:5000"); // Connect to Flask-SocketIO
+const socket = io("http://65.0.91.143/"); // Connect to Flask-SocketIO
 
 const Chat = ({ username, room }) => {
   const [messages, setMessages] = useState([]);
@@ -24,7 +24,7 @@ const Chat = ({ username, room }) => {
 
   useEffect(() => {
     // Fetch chat history from backend
-    axios.get(`http://localhost:5000/chat-history/${room}`)
+    axios.get(`http://65.0.91.143/chat-history/${room}`)
       .then((res) => setMessages(res.data))
       .catch((err) => console.error("Error fetching chat history:", err));
   }, [room]);
